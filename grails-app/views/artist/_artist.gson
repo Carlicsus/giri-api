@@ -1,0 +1,13 @@
+import giri.api.Artist
+
+model {
+    Artist artist
+}
+
+json {
+    id        artist.id
+    firstName artist.firstName
+    lastName  artist.lastName
+    createdAt artist.dateCreated?.format("dd/MM/yyyy")
+    updatedAt artist.lastUpdated?.format("dd/MM/yyyy")
+}

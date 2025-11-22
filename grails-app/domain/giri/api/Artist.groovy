@@ -5,7 +5,7 @@ import grails.rest.*
 import grails.plugin.springsecurity.annotation.Secured
 
 @Resource(uri = '/api/artists', readOnly = false, formats = ['json', 'xml'])
-@Secured(['permitAll'])
+@Secured(['ROLE_ADMIN'])
 class Artist {
     String id
     String firstName

@@ -1,0 +1,7 @@
+import giri.api.Artist
+
+model {
+    List<Artist> artistList
+}
+
+json tmpl.artist(artistList)
