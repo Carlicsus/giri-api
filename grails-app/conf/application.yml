@@ -20,11 +20,9 @@ spring:
         template:
             check-template-location: false
 
-# Spring Actuator Endpoints are Disabled by Default
-endpoints:
-    enabled: false
-    jmx:
-        enabled: true
+# customize Spring Boot Actuator end-points
+management:
+    context-path: /api/management
 
 ---
 grails:
