@@ -1,11 +1,11 @@
 package giri.api
 
 
-import grails.rest.*
+import grails.rest.Resource
 import grails.plugin.springsecurity.annotation.Secured
 
-@Resource(uri = '/api/artists', readOnly = false, formats = ['json', 'xml'])
-@Secured(['ROLE_ADMIN'])
+// @Resource(uri = '/api/artists', readOnly = false, formats = ['json', 'xml'])
+// @Secured(['ROLE_ADMIN'])
 class Artist {
     String id
     String firstName
