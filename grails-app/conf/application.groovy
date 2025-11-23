@@ -8,6 +8,7 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	[pattern: '/',               access: ['permitAll']],
 	[pattern: '/error',          access: ['permitAll']],
 	[pattern: '/index',          access: ['permitAll']],
+	[pattern: '/index.gsp',      access: ['permitAll']],
 	[pattern: '/login/auth',        access: ['denyAll']], //lock down spring security login form url
 	[pattern: '/api/logout',     access: ['isAuthenticated()']],
 	//Spring boot Actuator management end-points
@@ -20,7 +21,7 @@ String statelessFilters = 'JOINED_FILTERS, -exceptionTranslationFilter, -authent
 def filterChainChainMaps = [
     //Stateless chain
     [pattern: '/api/**', filters: statelessFilters],
-    [pattern: '/**',     filters: statelessFilters]
+    //[pattern: '/**',     filters: statelessFilters]
     //Traditional stateful chain - We are stateless, no stateful chain is required
 ]
 

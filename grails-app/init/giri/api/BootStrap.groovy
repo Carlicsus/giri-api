@@ -7,6 +7,10 @@ class BootStrap {
 
     def init = { servletContext ->
 
+        if (GrailsUtil.environment == "development") {
+            return
+        }
+
         def adminRole = Role.findOrSaveByAuthority('ROLE_ADMIN')
         def userRole = Role.findOrSaveByAuthority('ROLE_USER')
 

@@ -1,0 +1,140 @@
+{
+	"info": {
+		"_postman_id": "a75ce645-99d2-4e5f-ac0a-e1c57fde997b",
+		"name": "giri-app",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "48159966",
+		"_collection_link": "https://altimetry-observer-37388238-8065986.postman.co/workspace/Carlos-Armando-Aranda-Hernandez~a2ad7501-34c6-4b8f-8693-4ae53de3c0d2/collection/48159966-a75ce645-99d2-4e5f-ac0a-e1c57fde997b?action=share&source=collection_link&creator=48159966"
+	},
+	"item": [
+		{
+			"name": "Artists",
+			"item": [
+				{
+					"name": "getAllArtists",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Auth-Token",
+								"value": "fs0vcpo2j050mpvas0pletg1povntba0",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "X-Auth-Token",
+								"value": "5v83a9mvj3mtktp5n5q6dn4204v6nb0f",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{host}}/api/artists",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"artists"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "createArtists",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Auth-Token",
+								"value": "fs0vcpo2j050mpvas0pletg1povntba0",
+								"type": "text"
+							},
+							{
+								"key": "X-Auth-Token",
+								"value": "5v83a9mvj3mtktp5n5q6dn4204v6nb0f",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \"firstName\": \"Carlos\", \"lastName\": \"Aranda\" }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/artists",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"artists"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getOne",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Auth-Token",
+								"value": "{{adminToken}}",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "X-Auth-Token",
+								"value": "{{userToken}}",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{host}}/api/artists/{{uuid}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"artists",
+								"{{uuid}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Auth",
+			"item": []
+		},
+		{
+			"name": "BloqueoDeLogin",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/login/auth",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"login",
+						"auth"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

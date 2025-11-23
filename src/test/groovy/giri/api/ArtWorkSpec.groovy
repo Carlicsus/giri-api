@@ -2,6 +2,7 @@ package giri.api
 
 import grails.testing.gorm.DomainUnitTest
 import spock.lang.Specification
+import spock.lang.PendingFeature
 
 class ArtWorkSpec extends Specification implements DomainUnitTest<ArtWork> {
 
@@ -10,7 +11,7 @@ class ArtWorkSpec extends Specification implements DomainUnitTest<ArtWork> {
 
     def cleanup() {
     }
-
+    @PendingFeature
     void "test something"() {
         expect:"fix me"
         true == false
