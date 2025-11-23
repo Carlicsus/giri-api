@@ -15,12 +15,25 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
     [pattern: '/api/management/**', access:['ROLE_ADMIN']]
 ]
 
+//env specific
+if (Environment.current == Environment.PRODUCTION) {
+    controllerAnnotationsStaticRuleMaps << [pattern: '/static/docs/**', access:['permitAll']] //TODO: denyAll
+//    controllerAnnotationsStaticRuleMaps << [pattern: '/**',             access:['permitAll']] //TODO: denyAll
+} else {
+    controllerAnnotationsStaticRuleMaps << [pattern: '/static/docs/**', access:['permitAll']]
+//    controllerAnnotationsStaticRuleMaps << [pattern: '/**',             access:['permitAll']]
+}
+
+grails.plugin.springsecurity.controllerAnnotations.staticRules = controllerAnnotationsStaticRuleMaps
+
 //Spring Security REST API plugin config
 String statelessFilters = 'JOINED_FILTERS, -exceptionTranslationFilter, -authenticationProcessingFilter, -securityContextPersistenceFilter, -rememberMeAuthenticationFilter'
 
 def filterChainChainMaps = [
     //Stateless chain
     [pattern: '/api/**', filters: statelessFilters],
+	[pattern: '/static/docs/**', filters: statelessFilters],
+    [pattern: '/**',     filters: statelessFilters]
     //[pattern: '/**',     filters: statelessFilters]
     //Traditional stateful chain - We are stateless, no stateful chain is required
 ]

@@ -44,3 +44,18 @@ asciidoctor {
     separateOutputDirs = false
     attributes 'snippets': snippetsDir //configure snippets attribute for .adoc files
 }
+
+/* Bundles generated API docs into war file.
+ * Spring boot serves static content under /public or /static or /resources or /META-INF/resources.
+ * Hooks into war task and adds asciidoctor task dependency, also copies generaed rest docs appropriately
+ * for bundling into war file.
+ */
+def publicDocsDir = 'WEB-INF/classes/public/docs'
+war {
+    dependsOn asciidoctor
+    from ("${asciidoctor.outputDir}") {
+        into publicDocsDir
+    }
+}
+
+//build.dependsOn asciidoctor
