@@ -1,0 +1,100 @@
+PS C:\Users\carlo\OneDrive\Documentos\giri-api> docker compose -f docker-compose.prod.yml down -v      
+time="2025-11-23T21:49:13-06:00" level=warning msg="C:\\Users\\carlo\\OneDrive\\Documentos\\giri-api\\docker-compose.prod.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion"
+[+] Running 4/4
+ ✔ Container giri-api-backend-1  Removed           13.1s 
+ ✔ Container giri-api-mysql5-1   Removed            5.7s 
+ ✔ Network giri-api_default      Removed            0.6s 
+ ✔ Volume giri-api_mysql_data    Removed            0.5s 
+PS C:\Users\carlo\OneDrive\Documentos\giri-api> docker compose -f docker-compose.prod.yml up mysql5 --build -d
+time="2025-11-23T21:49:52-06:00" level=warning msg="C:\\Users\\carlo\\OneDrive\\Documentos\\giri-api\\docker-compose.prod.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion"
+[+] Running 3/3
+ ✔ Network giri-api_default      Created            0.4s 
+ ✔ Volume "giri-api_mysql_data"  Created            0.1s 
+ ✔ Container giri-api-mysql5-1   Started            3.8s 
+PS C:\Users\carlo\OneDrive\Documentos\giri-api> grails war
+:compileJava NO-SOURCE
+:compileGroovy UP-TO-DATE
+:buildProperties UP-TO-DATE
+:processResources UP-TO-DATE
+:classes UP-TO-DATE
+:compileTestJava NO-SOURCE
+:compileTestGroovy UP-TO-DATE
+:processTestResources NO-SOURCE
+:testClasses UP-TO-DATE
+:compileIntegrationTestJava NO-SOURCE
+:compileIntegrationTestGroovy UP-TO-DATE
+:findMainClass
+:processIntegrationTestResources UP-TO-DATE
+:integrationTestClasses UP-TO-DATE
+:integrationTest UP-TO-DATE
+:mergeTestReports UP-TO-DATE
+:asciidoctor UP-TO-DATE
+:compileGsonViews UP-TO-DATE
+:war
+:bootRepackage
+:assemble
+
+BUILD SUCCESSFUL
+
+Total time: 40.108 secs
+| Built application to build\libs using environment: production
+PS C:\Users\carlo\OneDrive\Documentos\giri-api> docker compose -f docker-compose.prod.yml down -v
+time="2025-11-23T21:51:01-06:00" level=warning msg="C:\\Users\\carlo\\OneDrive\\Documentos\\giri-api\\docker-compose.prod.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion"
+[+] Running 3/3
+ ✔ Container giri-api-mysql5-1  Removed            4.8s 
+ ✔ Network giri-api_default     Removed            0.6s 
+ ✔ Volume giri-api_mysql_data   Removed            0.3s 
+PS C:\Users\carlo\OneDrive\Documentos\giri-api> docker compose -f docker-compose.prod.yml up --build -d
+time="2025-11-23T21:51:15-06:00" level=warning msg="C:\\Users\\carlo\\OneDrive\\Documentos\\giri-api\\docker-compose.prod.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion"
+#1 [internal] load local bake definitions
+#1 reading from stdin 561B 0.0s done
+#1 DONE 0.0s
+
+#2 [internal] load build definition from dockerfile.prod
+#2 transferring dockerfile: 414B 0.0s done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for docker.io/library/tomcat:9.0-jdk8-temurin
+#3 DONE 3.6s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 2B 0.0s done
+#4 DONE 0.1s
+
+#5 [1/3] FROM docker.io/library/tomcat:9.0-jdk8-temurin@sha256:217f1165bc1adf5b6cefafb9e086eea977580696527c9d7bfef3734bbbbfb89f
+#5 resolve docker.io/library/tomcat:9.0-jdk8-temurin@sha256:217f1165bc1adf5b6cefafb9e086eea977580696527c9d7bfef3734bbbbfb89f 0.1s done      
+#5 DONE 0.1s
+
+#6 [internal] load build context
+#6 transferring context: 44.44MB 5.0s
+#6 transferring context: 55.45MB 6.2s done
+#6 DONE 6.2s
+
+#7 [2/3] RUN rm -rf /usr/local/tomcat/webapps/*
+#7 CACHED
+
+#8 [3/3] COPY build/libs/*.war /usr/local/tomcat/webapps/ROOT.war
+#8 DONE 5.2s
+
+#9 exporting to image
+#9 exporting layers
+#9 exporting layers 13.3s done
+#9 exporting manifest sha256:63e950514480eb511a9d7ac7ae2bf2b4aea02cbc6b0d0508039c6f1042660e72 0.1s done
+#9 exporting config sha256:f38e8c9cffc1edc8b5d56dfea2bc55599ac8fb85f95ee73669ff40f7c1c2ccf3 0.1s done
+#9 exporting attestation manifest sha256:18978b4f40ea9fd2d28a4a071eb2983c59a41179277a0b34a58f457cc28095f0 0.1s done
+#9 exporting manifest list sha256:43a140138e3a423ef000940e9ff3afb619e25f93c7c5b1037872bcd73e987a9f
+#9 exporting manifest list sha256:43a140138e3a423ef000940e9ff3afb619e25f93c7c5b1037872bcd73e987a9f 0.1s done
+#9 naming to docker.io/library/giri-api-backend:latest 0.0s done
+#9 unpacking to docker.io/library/giri-api-backend:latest
+#9 unpacking to docker.io/library/giri-api-backend:latest 1.5s done
+#9 DONE 15.5s
+
+#10 resolving provenance for metadata file
+#10 DONE 0.1s
+[+] Running 5/5
+ ✔ giri-api-backend              Built ✔ Volume "giri-api_mysql_data"  Created                                                                                   
+            0.0s
+ ✔ Container giri-api-mysql5-1   Healthy                                                                                   
+           25.3s
+ ✔ Container giri-api-backend-1  Started                                                                                   
+           25.7s

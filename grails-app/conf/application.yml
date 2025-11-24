@@ -74,22 +74,23 @@ dataSource:
 
 environments:
     development:
-        dataSource:   
+        dataSource:
             dbCreate: create-drop
-            url: jdbc:mysql://localhost:3306/restaurante?useSSL=false&useUnicode=yes&characterEncoding=UTF-8
+            url: jdbc:mysql://${MYSQL_HOST:localhost}:3306/restaurante_dev?useSSL=false&useUnicode=yes&characterEncoding=UTF-8
             username: carlicsus
             password: 1234
+
     test:
-        dataSource:   
+        dataSource:
             dbCreate: create-drop
-            url: jdbc:mysql://localhost:3306/restaurante?useSSL=false&useUnicode=yes&characterEncoding=UTF-8
+            url: jdbc:mysql://${MYSQL_HOST:localhost}:3306/restaurante_test?useSSL=false&useUnicode=yes&characterEncoding=UTF-8
             username: carlicsus
             password: 1234
+
     production:
         dataSource:
-            dataSource:   
-            dbCreate: create-drop
-            url: jdbc:mysql://localhost:3306/restaurante?useSSL=false&useUnicode=yes&characterEncoding=UTF-8
+            dbCreate: update
+            url: jdbc:mysql://${MYSQL_HOST:localhost}:3306/restaurante_prod?useSSL=false&useUnicode=yes&characterEncoding=UTF-8
             username: carlicsus
             password: 1234
             properties:
