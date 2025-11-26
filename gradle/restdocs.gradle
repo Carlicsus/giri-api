@@ -57,5 +57,19 @@ war {
         into publicDocsDir
     }
 }
-
 //build.dependsOn asciidoctor
+
+task copyDocsToApi(type: Copy) {
+    def docsDir = file("$buildDir/asciidoc")
+
+    onlyIf {
+        docsDir.exists()
+    }
+
+    from docsDir
+    into "src/main/resources/public/docs"
+}
+
+asciidoctor.finalizedBy copyDocsToApi
+
+
